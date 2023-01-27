@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Doctors</title>
+   <!-- swipper css -->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+   <!-- style css -->
+   <link rel="stylesheet" href="scss/doctors/doctors.css">
+</head>
+
+<body>
+   <!-- Scroll Up Start -->
+   <a class="scrollUp" href="#" id="scrollUp">
+      <span class="scrollUp__link">
+          <img class="scrollUp__arrow" src="images/scrollUp.svg" alt="">
+      </span>
+      <span class="scrollUp__text">вверх</span>
+  </a>
+  <!-- Scroll Up End --> 
+
+   <form action="">
+      <div class="modal" id="appointmentModal">
+          <div class="modal__content">
+              <h2 class="modal__title">Запись на прием</h2>
+              <input type="text" class="modal__inp" placeholder="Ваше имя">
+              <input type="text" class="modal__inp" placeholder="Введите телефон*">
+              <div class="modal__select">
+                  <select name="" id="">
+                      <option value="" selected disabled>Специалист</option>
+                      <option value="">option</option>
+                      <option value="">option</option>
+                  </select>
+              </div>
+              <label for="" class="modal__lab">
+                  <input type="text" name="" id="" class="modal__lab_inp" placeholder="Желаемая дата">
+                  <img src="images/calendar.svg" alt="" class="modal__lab_icon">
+              </label>
+              <label for="" class="modal__lab">
+                  <input type="text" name="" id="" class="modal__lab_inp" placeholder="Время">
+                  <img src="images/time.svg" alt="" class="modal__lab_icon">
+              </label>
+              <button type="button" class="modal__close" onclick="toggleActive('#appointmentModal')">
+                  <img src="images/close.png" alt="" class="modal__close_icon">
+              </button>
+              <div class="modal__footer">
+                  <button type="button" class="modal__footer_send">Записаться на прием</button>
+                  <p class="modal__footer_tooltip">Отправляя данную форму подтверждаю свое согласие на обработку персональных данных</p>
+              </div>
+          </div>
+      </div>
+  </form>
+
+   <nav class="navbar">
+      <div class="navbar__search" id="search">
+         <div class="navbar__search_content">
+            <form action="">
+               <label for="" class="navbar__search_lab">
+                  <input type="search" name="" id="" class="navbar__search_lab_inp" placeholder="Что вы ищете?">
+                  <button type="button" class="navbar__search_lab_btn">
+                     <img src="images/search.png" alt="" class="navbar__search_lab_btn_icon">
+                  </button>
+               </label>
+            </form>
+            <button type="button" class="navbar__search_btn" onclick="toggleActive('#search')">
+               <img src="images/close.png" alt="" class="navbar__search_btn_icon">
+            </button>
+         </div>
+      </div>
+      <div class="navbar__content">
+         <div class="navbar__sets">
+            <a class="navbar__sets_logo" href="index.html">
+               <img class="navbar__sets_logo_img" src="images/logo.png" alt="logo">
+               <span class="navbar__sets_logo_text">Центр восстановительной медицины R+</span>
+            </a>
+            <div class="navbar__sets_content">
+               <div class="navbar__sets_contact">
+                  <a class="navbar__sets_contact_phone" href="">
+                     <span class="phone-number">+7 495 120 05 77</span>
+                     <img class="phone-icon" src="images/headerPhoneIcon.svg" alt="phne icon">
+                  </a>
+                  <p class="navbar__sets_contact_workTime">Ежедневно с 9:00 до 21:00</p>
+               </div>
+               <div class="navbar__sets_links">
+                  <a class="navbar__sets_diagnostic" href="calculatorStep1.html">Онлайн- диагностика</a>
+                  <button type="button" class="navbar__sets_appointment" onclick="toggleActive('#appointmentModal')">Запись
+                     на прием</button>
+               </div>
+               <button type="button" class="navbar__sets_search" onclick="toggleActive('#search')">
+                  <img src="images/search.png" alt="" class="navbar__sets_search_icon">
+               </button>
+               <div class="navbar__sets_user">
+                  <img src="images/user.png" alt="" class="navbar__sets_user_icon">
+                  <button type="button" class="navbar__sets_user_login">Вход</button>
+                  <button type="button" class="navbar__sets_user_registration">Регистрация</button>
+               </div>
+               <!-- mobile burger icon -->
+               <button class="burgerBtn" type="button" onclick="burgerOpen('#about__dropdown_link')">
+                  <img class="burgerBtn__icon" src="images/burgerIcon.png" alt="burger icon">
+               </button>
+            </div>
+         </div>
+
+         <div class="navbar__footer">
+            <div class="navbar__footer_content" id="about__dropdown_link">
+               <!-- close burger -->
+               <button class="burger-closeBtn" onclick="burgerClose('#about__dropdown_link')">
+                  <img class="burger-closeBtn__icon" src="images/close.png" alt="close icon">
+               </button>
+
+               <div class="navbar__footer_burger-menu">
+                  <ul class="navbar__menu">
+                     <li class="burger">
+                        <a href="" class="navbar__menu_link">О нас</a>
+                        <ul class="navbar__menu_dropdown about__dropdown">
+                           <li><a href="" class="about__dropdown_link">Информация для пациентов</a></li>
+                           <li><a href="" class="about__dropdown_link">Оборудование</a></li>
+                           <li><a href="" class="about__dropdown_link">Правовая информация</a></li>
+                           <li><a href="" class="about__dropdown_link">Галерея</a></li>
+                        </ul>
+                     </li>
+                     <li class="burger">
+                        <a href="" class="navbar__menu_link">Услуги</a>
+                        <ul class="navbar__menu_dropdown services__dropdown">
+                           <li class="services__dropdown_item">
+                              <button type="button" class="services__dropdown_btn" id="defaultService"
+                                 onclick="tabs('services__dropdown_btn','services__dropdown_tab', this, 'services1'),servicesTabOpen('#services1')">Реабилитология</button>
+                              <button type="button" class="services__dropdown_btn"
+                                 onclick="tabs('services__dropdown_btn','services__dropdown_tab', this, 'services2'),servicesTabOpen('#services2')">Косметология</button>
+                              <button type="button" class="services__dropdown_btn"
+                                 onclick="tabs('services__dropdown_btn','services__dropdown_tab', this, 'services3'),servicesTabOpen('#services3')">Ортопедия</button>
+                           </li>
+                           <li>
+                              <ul>
+                                 <li>
+                                    <ul class="services__dropdown_tab" id="services1">
+                                       <button class="services__dropdown_tab_arrowBtn" type="button"
+                                          onclick="servicesTabClose('#services1')">
+                                          <img class="services__dropdown_tab_mobileArrow"
+                                             src="images/servicesTabMobileArrow.png" alt="Arrow">
+                                       </button>
+                                       <li>
+                                          <ul>
+                                             <li><a href="" class="services__dropdown_tab_link">Прием врача лечебной
+                                                   физкультуры</a></li>
+                                             <li><a href="" class="services__dropdown_tab_link">Лечебная физкультура при
+                                                   травмах суставов</a></li>
+                                             <li><a href="" class="services__dropdown_tab_link">Лечебная физкультура при
+                                                   переломе позвоночникаЛечебная физкультура при заболеваниях суставов мышц
+                                                   передней брюшной стенки</a></li>
+                                             <li><a href="" class="services__dropdown_tab_link">Лечебная физкультура при
+                                                   заболеваниях суставов мышц передней брюшной стенки</a></li>
+                                             <li><a href="" class="services__dropdown_tab_link">Лечебная физкультура при
+                                                   заболеваниях позвоночника</a></li>
+                                             <li><a href="" class="services__dropdown_tab_link">Лечебная физкультура на
+                                                   уменьшение спастики</a></li>
+                                             <li><a href="" class="services__dropdown_tab_link">Лечебная физкультура при
+                                                   переломах</a></li>
+                                             <li><a href="" class="services__dropdown_tab_link">Терапия по методу Neurac с
+                                                   применением реабилитационной системы Redcord</a></li>
+                                             <li><a href="" class="services__dropdown_tab_link">Чрескожная
+                                                   электронейростимуляция</a></li>
+                                             <li><a href="" class="services__dropdown_tab_link">Электрофорез флюктуирующим
+                                                   током</a></li>
+                                             <li><a href="" class="services__dropdown_tab_link">Надвенное лазерное
+                                                   облучение</a></li>
+                                          </ul>
+                                       </li>
+                                       <li>
+                                          <ul>
+                                             <li><a href="" class="services__dropdown_tab_link">Лимфодренажный массаж</a>
+                                             </li>
+                                             <li><a href="" class="services__dropdown_tab_link">Антицеллюлитный массаж</a>
+                                             </li>
+                                             <li><a href="" class="services__dropdown_tab_link">Общий массаж</a></li>
+                                             <li><a href="" class="services__dropdown_tab_link">Классический массаж</a>
+                                             </li>
+                                             <li><a href="" class="services__dropdown_tab_link">Вертебральная мануальная
+                                                   терапия</a></li>
+                                             <li><a href="" class="services__dropdown_tab_link">Ультразвуковая
+                                                   денситометрия</a></li>
+                                             <li><a href="" class="services__dropdown_tab_link">Спортивная
+                                                   восстановительная медицина</a></li>
+                                             <li><a href="" class="services__dropdown_tab_link">Восстановление после травм
+                                                   и операций</a></li>
+                                             <li><a href="" class="services__dropdown_tab_link">Адаптация к трудовой
+                                                   деятельности</a></li>
+                                             <li><a href="" class="services__dropdown_tab_link">Криосауна</a></li>
+                                             <li><a href="" class="services__dropdown_tab_link">Барокамера</a></li>
+                                             <li><a href="" class="services__dropdown_tab_link">Массаж LPG тела</a></li>
+                                          </ul>
+                                       </li>
+                                    </ul>
+                                 </li>
+                                 <li>
+                                    <ul class="services__dropdown_tab" id="services2">
+                                       <button class="services__dropdown_tab_arrowBtn" type="button"
+                                          onclick="servicesTabClose('#services2')">
+                                          <img class="services__dropdown_tab_mobileArrow"
+                                             src="images/servicesTabMobileArrow.png" alt="Arrow">
+                                       </button>
+                                       <li>
+                                          <ul>
+                                             <li><a href="" class="services__dropdown_tab_link">2.Прием врача лечебной
+                                                   физкультуры</a></li>
+                                             <li><a href="" class="services__dropdown_tab_link">Лечебная физкультура при
+                                                   травмах суставов</a></li>
+                                             <li><a href="" class="services__dropdown_tab_link">Лечебная физкультура при
+                                                   переломе позвоночникаЛечебная физкультура при заболеваниях суставов мышц
+                                                   передней брюшной стенки</a></li>
+                                             <li><a href="" class="services__dropdown_tab_link">Лечебная физкультура при
+                                                   заболеваниях суставов мышц передней брюшной стенки</a></li>
+                                             <li><a href="" class="services__dropdown_tab_link">Лечебная физкультура при
+                                                   заболеваниях позвоночника</a></li>
+                                             <li><a href="" class="services__dropdown_tab_link">Лечебная физкультура на
+                                                   уменьшение спастики</a></li>
+                                             <li><a href="" class="services__dropdown_tab_link">Лечебная физкультура при
+                                                   переломах</a></li>
+                                             <li><a href="" class="services__dropdown_tab_link">Терапия по методу Neurac с
+                                                   применением реабилитационной системы Redcord</a></li>
+                                             <li><a href="" class="services__dropdown_tab_link">Чрескожная
+                                                   электронейростимуляция</a></li>
+                                             <li><a href="" class="services__dropdown_tab_link">Электрофорез флюктуирующим
+                                                   током</a></li>
+                                             <li><a href="" class="services__dropdown_tab_link">Надвенное лазерное
+                                                   облучение</a></li>
+                                          </ul>
+                                       </li>
+                                       <li>
+                                          <ul>
+                                             <li><a href="" class="services__dropdown_tab_link">Лимфодренажный массаж</a>
+                                             </li>
+                                             <li><a href="" class="services__dropdown_tab_link">Антицеллюлитный массаж</a>
+                                             </li>
+                                             <li><a href="" class="services__dropdown_tab_link">Общий массаж</a></li>
+                                             <li><a href="" class="services__dropdown_tab_link">Классический массаж</a>
+                                             </li>
+                                             <li><a href="" class="services__dropdown_tab_link">Вертебральная мануальная
+                                                   терапия</a></li>
+                                             <li><a href="" class="services__dropdown_tab_link">Ультразвуковая
+                                                   денситометрия</a></li>
+                                             <li><a href="" class="services__dropdown_tab_link">Спортивная
+                                                   восстановительная медицина</a></li>
+                                             <li><a href="" class="services__dropdown_tab_link">Восстановление после травм
+                                                   и операций</a></li>
+                                             <li><a href="" class="services__dropdown_tab_link">Адаптация к трудовой
+                                                   деятельности</a></li>
+                                             <li><a href="" class="services__dropdown_tab_link">Криосауна</a></li>
+                                             <li><a href="" class="services__dropdown_tab_link">Барокамера</a></li>
+                                             <li><a href="" class="services__dropdown_tab_link">Массаж LPG тела</a></li>
+                                          </ul>
+                                       </li>
+                                    </ul>
+                                 </li>
+                                 <li>
+                                    <ul class="services__dropdown_tab" id="services3">
+                                       <button class="services__dropdown_tab_arrowBtn" type="button"
+                                          onclick="servicesTabClose('#services3')">
+                                          <img class="services__dropdown_tab_mobileArrow"
+                                             src="images/servicesTabMobileArrow.png" alt="Arrow">
+                                       </button>
+                                       <li>
+                                          <ul>
+                                             <li><a href="" class="services__dropdown_tab_link">3.Прием врача лечебной
+                                                   физкультуры</a></li>
+                                             <li><a href="" class="services__dropdown_tab_link">Лечебная физкультура при
+                                                   травмах суставов</a></li>
+                                             <li><a href="" class="services__dropdown_tab_link">Лечебная физкультура при
+                                                   переломе позвоночникаЛечебная физкультура при заболеваниях суставов мышц
+                                                   передней брюшной стенки</a></li>
+                                             <li><a href="" class="services__dropdown_tab_link">Лечебная физкультура при
+                                                   заболеваниях суставов мышц передней брюшной стенки</a></li>
+                                             <li><a href="" class="services__dropdown_tab_link">Лечебная физкультура при
+                                                   заболеваниях позвоночника</a></li>
+                                             <li><a href="" class="services__dropdown_tab_link">Лечебная физкультура на
+                                                   уменьшение спастики</a></li>
+                                             <li><a href="" class="services__dropdown_tab_link">Лечебная физкультура при
+                                                   переломах</a></li>
+                                             <li><a href="" class="services__dropdown_tab_link">Терапия по методу Neurac с
+                                                   применением реабилитационной системы Redcord</a></li>
+                                             <li><a href="" class="services__dropdown_tab_link">Чрескожная
+                                                   электронейростимуляция</a></li>
+                                             <li><a href="" class="services__dropdown_tab_link">Электрофорез флюктуирующим
+                                                   током</a></li>
+                                             <li><a href="" class="services__dropdown_tab_link">Надвенное лазерное
+                                                   облучение</a></li>
+                                          </ul>
+                                       </li>
+                                       <li>
+                                          <ul>
+                                             <li><a href="" class="services__dropdown_tab_link">Лимфодренажный массаж</a>
+                                             </li>
+                                             <li><a href="" class="services__dropdown_tab_link">Антицеллюлитный массаж</a>
+                                             </li>
+                                             <li><a href="" class="services__dropdown_tab_link">Общий массаж</a></li>
+                                             <li><a href="" class="services__dropdown_tab_link">Классический массаж</a>
+                                             </li>
+                                             <li><a href="" class="services__dropdown_tab_link">Вертебральная мануальная
+                                                   терапия</a></li>
+                                             <li><a href="" class="services__dropdown_tab_link">Ультразвуковая
+                                                   денситометрия</a></li>
+                                             <li><a href="" class="services__dropdown_tab_link">Спортивная
+                                                   восстановительная медицина</a></li>
+                                             <li><a href="" class="services__dropdown_tab_link">Восстановление после травм
+                                                   и операций</a></li>
+                                             <li><a href="" class="services__dropdown_tab_link">Адаптация к трудовой
+                                                   деятельности</a></li>
+                                             <li><a href="" class="services__dropdown_tab_link">Криосауна</a></li>
+                                             <li><a href="" class="services__dropdown_tab_link">Барокамера</a></li>
+                                             <li><a href="" class="services__dropdown_tab_link">Массаж LPG тела</a></li>
+                                          </ul>
+                                       </li>
+                                    </ul>
+                                 </li>
+                              </ul>
+                           </li>
+                        </ul>
+                     </li>
+                     <li><a href="" class="navbar__menu_link">Комплексные программы</a></li>
+                     <li><a href="#prices" class="navbar__menu_link">Цены</a></li>
+                     <li><a href="#stock" class="navbar__menu_link">Акции</a></li>
+                     <li><a href="doctors.html" class="navbar__menu_link">врачи</a></li>
+                     <li><a href="#reviews" class="navbar__menu_link">Отзывы</a></li>
+                     <li><a href="#contact" class="navbar__menu_link">Контакты</a></li>
+                  </ul>
+               </div>
+            </div>
+            <a href="telemedicine.html" class="telemedicine">
+               <span class="telemedicine_text">Телемедицина</span>
+               <span class="telemedicine_tvText">.TV</span>
+            </a>
+         </div>
+      </div>
+   </nav>
+
+   <div class="crumbs">
+      <a class="crumbs__link" href="#">Главная</a>
+      <a class="crumbs__link" href="#">Врачи</a>
+   </div>
+
+   <main>
+      <section class="doctors">
+         <h2 class="doctors__title">Врачи</h2>
+         <div class="doctors__container">
+            <div class="doctors__content">
+               <div class="doctors__item">
+                  <div class="doctors__portfolio">
+                     <div class="doctors__portfolio_photo">
+                        <div class="doctors__portfolio_photo-img">
+                           <img class="doctors__portfolio_photo-avatar" src="images/portfolioIMG1.jpg"
+                              alt="portfolio img">
+                        </div>
+                        <div class="doctors__portfolio_photo-btns">
+                           <button class="doctors__portfolio_photo-btn">Запись на прием</button>
+                           <button class="doctors__portfolio_photo-btnInfo">
+                              <svg width="10" height="20" viewBox="0 0 10 20" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                 <path
+                                    d="M3.98586 20.0005C1.99204 20.0005 2.07512 17.0098 3.98586 17.0098C5.97968 17.0098 5.97968 20.0005 3.98586 20.0005Z"
+                                    fill="#252628" />
+                                 <path
+                                    d="M3.125 14.375C1.13118 8.64276 9.49382 7.02957 7.5 3.125C6.42001 0.965026 2.15997 0.798874 0 3.125V1.30792C6.47992 -2.67972 13.0429 3.21867 6.8953 8.70168C4.90148 10.6124 3.75 12.5 4.98456 14.3508L3.125 14.375Z"
+                                    fill="#252628" />
+                              </svg>
+                           </button>
+                        </div>
+                     </div>
+
+                     <div class="doctors__portfolio_desc">
+                        <h3 class="doctors__portfolio_desc-title">АЛИЕВ РАБАДАН АБДУЛЛАЕВИЧ</h3>
+                        <p class="doctors__portfolio_desc-text">Главный Врач Врач травматолог-ортопед. Спортивный врач.
+                        </p>
+                        <ul class="doctors__portfolio_desc-item">
+                           <li class="doctors__portfolio_desc-list">
+                              <span class="green-circle"></span>
+                              <span class="text-color-grey">Опыт работы:</span> с 2013 г.
+                           </li>
+                           <li class="doctors__portfolio_desc-list">
+                              <span class="green-circle"></span>
+                              <span class="text-color-grey">Образование:</span> Высшее. Российский Государственный
+                              Медицинский Университет им. Н.И.Пирогова
+                           </li>
+                           <li class="doctors__portfolio_desc-list">
+                              <span class="green-circle"></span>
+                              <span class="text-color-grey">Ординатура:</span> На кафедре травматологии и ортопедии,
+                              артрологии факультета повышения квалификации медицинских работников Российского
+                              Университета Дружбы Народов
+                           </li>
+                           <li class="doctors__portfolio_desc-list">
+                              <span class="green-circle"></span>
+                              <span class="text-color-grey">Дополнительные курсы:</span>
+                           </li>
+                           <li class="doctors__portfolio_desc-list">
+                              <span class="grey-circle"></span>
+                              В 2015 Курсы «Современные принципы артроскопического лечения коленного сустава»
+                           </li>
+                           <li class="doctors__portfolio_desc-list">
+                              <span class="grey-circle"></span>
+                              09.12.2016 Повышение квалификации «Артроскопическая хирургия коленного сустава»
+                           </li>
+                           <li class="doctors__portfolio_desc-list">
+                              <span class="grey-circle"></span>
+                              11.06.2016 года Повышение квалификации «Современные высотехнологичные методы оперативного
+                              лечения патологии стопы»
+                           </li>
+                           <li class="doctors__portfolio_desc-list">
+                              <span class="grey-circle"></span>
+                              Член Ассоциации травматологов-ортопедов России, Член АСТАОР. Работал в ГКБ № 68, в ГКБ №
+                              17, в ГКБ № 7, в ФНКЦ ФМБА России
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+
+                  <div class="accordion doctors-accordion">
+                     <button class="accordion__btn doctors-accordion__btn" type="button"
+                        onclick="dropdown(this)">Лицензии и дипломы
+                        <img class="accordion__btn_arrow doctors-accordion__btn_arrow" src="images/accordionArrow.svg"
+                           alt="arrow img">
+                     </button>
+                     <div class="accordion__content doctors-accordion__content">
+                        <div class="swiper" id="accordionSwiper">
+                           <div class="swiper-wrapper">
+                              <div class="swiper-slide">
+                                 <button class="swiper-slide__btn" type="button"></button>
+                                 <img class="doctors-accordion__img" src="images/accordionImg1.jpg" alt="img 1">
+                              </div>
+                              <div class="swiper-slide">
+                                 <button class="swiper-slide__btn" type="button"></button>
+                                 <img class="doctors-accordion__img" src="images/accordionImg2.jpg" alt="img 2">
+                              </div>
+                              <div class="swiper-slide">
+                                 <button class="swiper-slide__btn" type="button"></button>
+                                 <img class="doctors-accordion__img" src="images/accordionImg3.jpg" alt="img 3">
+                              </div>
+                              <div class="swiper-slide">
+                                 <button class="swiper-slide__btn" type="button"></button>
+                                 <img class="doctors-accordion__img" src="images/accordionImg4.jpg" alt="img 4">
+                              </div>
+                              <div class="swiper-slide">
+                                 <button class="swiper-slide__btn" type="button"></button>
+                                 <img class="doctors-accordion__img" src="images/accordionImg5.jpg" alt="img 5">
+                              </div>
+                              <div class="swiper-slide">
+                                 <button class="swiper-slide__btn" type="button"></button>
+                                 <img class="doctors-accordion__img" src="images/accordionImg6.jpg" alt="img 6">
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+
+                  <form action="#">
+                     <div class="form doctors-form">
+                        <div class="form__header">
+                           <label class="form__header_label" for="check1">
+                              <input class="form__inp" type="checkbox" name="check" id="check1">
+                              <span class="checked header-checked"></span>
+                              Консультация врача
+                           </label>
+                           <span class="form__header_valuta">Цена, руб</span>
+                        </div>
+      
+                        <div class="form__items">
+                           <div class="form__item">
+                              <span class="form__item_densitometry">
+                                 <label class="form__item_label" for="check2">
+                                    <input class="form__inp" type="checkbox" name="check" id="check2">
+                                    <span class="checked"></span>
+                                    Первичная
+                                 </label>
+                              </span>
+                              <span class="form__item_price">1 500 ₽</span>
+                           </div>
+      
+                           <div class="form__item">
+                              <span class="form__item_densitometry">
+                                 <label class="form__item_label" for="check3">
+                                    <input class="form__inp" type="checkbox" name="check" id="check3">
+                                    <span class="checked"></span>
+                                    Повторная
+                                 </label>
+                              </span>
+                              <span class="form__item_price">1 000 ₽</span>
+                           </div>
+                        </div>
+      
+                        <div class="form__footer">
+                           <div class="form__footer_desc">
+                              <span>
+                                 <span class="form__footer_text">Итого:</span>
+                                 <span class="form__footer_price">0 ₽</span>
+                              </span>
+                              <span>
+                                 <span class="form__footer_text">Кол-во:</span>
+                                 <span class="form__footer_count">0</span>
+                              </span>
+                           </div>
+      
+                           <button class="form__footer_btn" type="submit">записаться</button>
+                        </div>
+                     </div>
+                  </form>
+               </div>
+
+               <div class="doctors__item">
+                  <div class="doctors__portfolio">
+                     <div class="doctors__portfolio_photo">
+                        <div class="doctors__portfolio_photo-img">
+                           <img class="doctors__portfolio_photo-avatar" src="images/portfolioIMG2.jpg"
+                              alt="portfolio img">
+                        </div>
+                        <div class="doctors__portfolio_photo-btns">
+                           <button class="doctors__portfolio_photo-btn">Запись на прием</button>
+                           <button class="doctors__portfolio_photo-btnInfo">
+                              <svg width="10" height="20" viewBox="0 0 10 20" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                 <path
+                                    d="M3.98586 20.0005C1.99204 20.0005 2.07512 17.0098 3.98586 17.0098C5.97968 17.0098 5.97968 20.0005 3.98586 20.0005Z"
+                                    fill="#252628" />
+                                 <path
+                                    d="M3.125 14.375C1.13118 8.64276 9.49382 7.02957 7.5 3.125C6.42001 0.965026 2.15997 0.798874 0 3.125V1.30792C6.47992 -2.67972 13.0429 3.21867 6.8953 8.70168C4.90148 10.6124 3.75 12.5 4.98456 14.3508L3.125 14.375Z"
+                                    fill="#252628" />
+                              </svg>
+                           </button>
+                        </div>
+                     </div>
+
+                     <div class="doctors__portfolio_desc">
+                        <h3 class="doctors__portfolio_desc-title">ГРИГОРЯН КРИСТИНА ОЛЕГОВНА</h3>
+                        <p class="doctors__portfolio_desc-text">Врач косметолог-дерматолог. Заведующая косметологией.</p>
+                        <ul class="doctors__portfolio_desc-item">
+                           <li class="doctors__portfolio_desc-list">
+                              <span class="green-circle"></span>
+                              <span class="text-color-grey">Опыт работы:</span> с 2013 г.
+                           </li>
+                           <li class="doctors__portfolio_desc-list">
+                              <span class="green-circle"></span>
+                              <span class="text-color-grey">Образование:</span>
+                           </li>
+                           <li class="doctors__portfolio_desc-list">
+                              <span class="grey-circle"></span>
+                              Высшее. Российский государственный медицинский университет им. Пирогова.
+                           </li>
+                           <li class="doctors__portfolio_desc-list">
+                              <span class="grey-circle"></span>
+                              Интернатура – на кафедре дерматовенерологии медицинского факультета РУДН.
+                           </li>
+                           <li class="doctors__portfolio_desc-list">
+                              <span class="grey-circle"></span>
+                              Первичная переподготовка по косметологии – факультет повышения квалификации медицинских
+                              работников РУДН.
+                           </li>
+                           <li class="doctors__portfolio_desc-list">
+                              <span class="green-circle"></span>
+                              <span class="text-color-grey">Дополнительное обучение:</span>
+                           </li>
+                           <li class="doctors__portfolio_desc-list">
+                              <span class="grey-circle"></span>
+                              Применение технологий Er YAG и ND YAG в дерматокосметологии по лазерной системе Fotona SP Dynamis
+                           </li>
+                           <li class="doctors__portfolio_desc-list">
+                              <span class="grey-circle"></span>
+                              Авторский специализированный курс по аппаратной косметологии «Осложнения лазерных и высокоинтенсивных методов»
+                           </li>
+                           <li class="doctors__portfolio_desc-list">
+                              <span class="grey-circle"></span>
+                              Обучение на аппарате Cellu M6 Integrali фирмы LPG Systems по методике «Эндермология: липомассаж и эндермолифт»
+                           </li>
+                           <li class="doctors__portfolio_desc-list">
+                              <span class="grey-circle"></span>
+                              Семинар «Основы дерматоскопии»
+                           </li>
+                           <li class="doctors__portfolio_desc-list">
+                              <span class="grey-circle"></span>
+                              Семинар «Неотложная помощь в реанимации в практике врача-косметолога»
+                           </li>
+                           <li class="doctors__portfolio_desc-list">
+                              <span class="grey-circle"></span>
+                              Участие в работе научно-практической конференции «Актуальные вопросы дерматовенерологии, дерматоонкологии и косметологии»
+                           </li>
+                           <li class="doctors__portfolio_desc-list">
+                              <span class="grey-circle"></span>
+                              Обучение по препарату ботулотоксина типа А Релатокс
+                           </li>
+                           <li class="doctors__portfolio_desc-list">
+                              <span class="grey-circle"></span>
+                              Семинар «Ботулотоксин типа А Ксеомин»
+                           </li>
+                           <li class="doctors__portfolio_desc-list">
+                              <span class="grey-circle"></span>
+                              Техники введения препарата Белотеро в области эстетической медицины и дерматовенерологии
+                           </li>
+                           <li class="doctors__portfolio_desc-list">
+                              <span class="grey-circle"></span>
+                              Участие в мастер-классе по применению нового коллагенового комплекса Коллост в дерматокосметологии
+                           </li>
+                           <li class="doctors__portfolio_desc-list">
+                              <span class="grey-circle"></span>
+                              Мастер-класс «Мезотерапия и биоревитализация с использованием препаратов Filorga»
+                           </li>
+                           <li class="doctors__portfolio_desc-list">
+                              <span class="grey-circle"></span>
+                              Научно-практический семинар по теме «Редермализация: как это работает с использованием препаратов линии Hyalual»
+                           </li>
+                           <li class="doctors__portfolio_desc-list">
+                              <span class="green-circle"></span>
+                              Регулярный участник российских и международных форумов, выставок и конференций в области эстетической медицины.
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+
+                  <div class="accordion doctors-accordion">
+                     <button class="accordion__btn doctors-accordion__btn" type="button"
+                        onclick="dropdown(this)">Лицензии и дипломы
+                        <img class="accordion__btn_arrow doctors-accordion__btn_arrow" src="images/accordionArrow.svg"
+                           alt="arrow img">
+                     </button>
+                     <div class="accordion__content doctors-accordion__content">
+                        <div class="swiper" id="accordionSwiper">
+                           <div class="swiper-wrapper">
+                              <div class="swiper-slide">
+                                 <button class="swiper-slide__btn" type="button"></button>
+                                 <img class="doctors-accordion__img" src="images/accordionImg1.jpg" alt="img 1">
+                              </div>
+                              <div class="swiper-slide">
+                                 <button class="swiper-slide__btn" type="button"></button>
+                                 <img class="doctors-accordion__img" src="images/accordionImg2.jpg" alt="img 2">
+                              </div>
+                              <div class="swiper-slide">
+                                 <button class="swiper-slide__btn" type="button"></button>
+                                 <img class="doctors-accordion__img" src="images/accordionImg3.jpg" alt="img 3">
+                              </div>
+                              <div class="swiper-slide">
+                                 <button class="swiper-slide__btn" type="button"></button>
+                                 <img class="doctors-accordion__img" src="images/accordionImg4.jpg" alt="img 4">
+                              </div>
+                              <div class="swiper-slide">
+                                 <button class="swiper-slide__btn" type="button"></button>
+                                 <img class="doctors-accordion__img" src="images/accordionImg5.jpg" alt="img 5">
+                              </div>
+                              <div class="swiper-slide">
+                                 <button class="swiper-slide__btn" type="button"></button>
+                                 <img class="doctors-accordion__img" src="images/accordionImg6.jpg" alt="img 6">
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+
+                  <form action="#">
+                     <div class="form doctors-form">
+                        <div class="form__header">
+                           <label class="form__header_label" for="check4">
+                              <input class="form__inp" type="checkbox" name="check" id="check4">
+                              <span class="checked header-checked"></span>
+                              Консультация врача
+                           </label>
+                           <span class="form__header_valuta">Цена, руб</span>
+                        </div>
+      
+                        <div class="form__items">
+                           <div class="form__item">
+                              <span class="form__item_densitometry">
+                                 <label class="form__item_label" for="check5">
+                                    <input class="form__inp" type="checkbox" name="check" id="check5">
+                                    <span class="checked"></span>
+                                    Первичная
+                                 </label>
+                              </span>
+                              <span class="form__item_price">1 500 ₽</span>
+                           </div>
+      
+                           <div class="form__item">
+                              <span class="form__item_densitometry">
+                                 <label class="form__item_label" for="check6">
+                                    <input class="form__inp" type="checkbox" name="check" id="check6">
+                                    <span class="checked"></span>
+                                    Повторная
+                                 </label>
+                              </span>
+                              <span class="form__item_price">1 000 ₽</span>
+                           </div>
+                        </div>
+      
+                        <div class="form__footer">
+                           <div class="form__footer_desc">
+                              <span>
+                                 <span class="form__footer_text">Итого:</span>
+                                 <span class="form__footer_price">0 ₽</span>
+                              </span>
+                              <span>
+                                 <span class="form__footer_text">Кол-во:</span>
+                                 <span class="form__footer_count">0</span>
+                              </span>
+                           </div>
+      
+                           <button class="form__footer_btn" type="submit">записаться</button>
+                        </div>
+                     </div>
+                  </form>
+               </div>
+
+               <div class="dots">
+                  <button class="dots_btn" type="button">
+                     <img class="dots-arrow" src="images/dotsLeftArrow.png" alt="left arrw">
+                  </button>
+                  <div class="dots_pages">
+                     <span class="dots_number active" onclick="activeClassDot(this)">1</span>
+                     <span class="dots_number" onclick="activeClassDot(this)">2</span>
+                     <span class="dots_number" onclick="activeClassDot(this)">3</span>
+                     <span class="nextDot">...</span>
+                  </div>
+                  <button class="dots_btn" type="button">
+                     <img class="dots-arrow" src="images/dotsRightArrow.png" alt="right arrow">
+                  </button>
+               </div>
+            </div>
+
+            <div class="comfortable doctors-comfortable">
+               <div class="comfortable__content doctors-comfortable__content">
+                  <div class="comfortable__desc doctors-comfortable__decs">
+                     <div class="comfortable__desc_photo">
+                        <img class="comfortable__desc_photo-img" src="images/comfortableSVG5.svg" alt="img 1">
+                     </div>
+                     <p class="comfortable__desc_text text-top">Авторские методики лечения</p>
+                  </div>
+
+                  <div class="comfortable__desc doctors-comfortable__decs">
+                     <div class="comfortable__desc_photo">
+                        <img class="comfortable__desc_photo-img" src="images/comfortableSVG6.svg" alt="img 2">
+                     </div>
+                     <p class="comfortable__desc_text text-top">Полный комплекс услуг в одном месте для решения ваших
+                        проблем</p>
+                  </div>
+
+                  <div class="comfortable__desc doctors-comfortable__decs">
+                     <div class="comfortable__desc_photo">
+                        <img class="comfortable__desc_photo-img" src="images/comfortableSVG7.svg" alt="img 3">
+                     </div>
+                     <p class="comfortable__desc_text text-top">12 лет опыта в лечении позвоночника</p>
+                  </div>
+
+                  <div class="comfortable__desc doctors-comfortable__decs">
+                     <div class="comfortable__desc_photo">
+                        <img class="comfortable__desc_photo-img" src="images/comfortableSVG8.svg" alt="img 4">
+                     </div>
+                     <p class="comfortable__desc_text text-top">Уникальное, редкое, дорогостоящее оборудование</p>
+                  </div>
+
+                  <div class="comfortable__desc doctors-comfortable__decs">
+                     <div class="comfortable__desc_photo">
+                        <img class="comfortable__desc_photo-img" src="images/comfortableSVG9.svg" alt="img 5">
+                     </div>
+                     <p class="comfortable__desc_text text-top">Дешевле, чем в других клиниках</p>
+                  </div>
+
+                  <div class="comfortable__desc doctors-comfortable__decs">
+                     <div class="comfortable__desc_photo">
+                        <img class="comfortable__desc_photo-img" src="images/comfortableSVG10.svg" alt="img 6">
+                     </div>
+                     <p class="comfortable__desc_text text-top">Подняли на ноги более 5000 пациентов, в том числе
+                        профессиональных спортсменов</p>
+                  </div>
+
+                  <div class="comfortable__desc doctors-comfortable__decs">
+                     <div class="comfortable__desc_photo">
+                        <img class="comfortable__desc_photo-img" src="images/comfortableSVG11.svg" alt="img 7">
+                     </div>
+                     <p class="comfortable__desc_text text-top">5000+ довольных пациентов</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+
+      <section class="consultation doctors-consultation">
+         <div class="consultation__content">
+             <form action="">
+                 <div class="consultation__form">
+                     <div class="consultation__form_desc"> 
+                         <h2 class="consultation__form_desc_title">Запишитесь на <b>первичную консультацию</b></h2>
+                         <p class="consultation__form_desc_text">Расскажите о вашей проблеме и получите бесплатную консультацию врача</p>
+                     </div>
+                     <div class="consultation__form_inputs">
+                         <input type="text" class="consultation__form_inputs_inp" placeholder="Ваше имя">
+                         <input type="text" class="consultation__form_inputs_inp" placeholder="Введите телефон*">
+                         <p class="consultation__form_inputs_tooltip">Отправляя данную форму подтверждаю свое согласие на обработку персональных данных</p>
+                         <button type="button" class="consultation__form_inputs_btn">получить консультацию</button>
+                     </div>
+                 </div>
+             </form>
+         </div>
+      </section>
+
+      <section class="reviews doctors-reviews">
+         <p class="patient-reviews">patient reviews</p>
+      
+         <div class="reviews__content">
+            <h2 class="reviews__title">
+               у них были
+               <b>такие же </b>
+               проблемы
+            </h2>
+            <a href="" class="reviews__link">
+               все отзывы
+               <span class="reviews__link_icon">
+                  <img src="images/arrow.png" alt="" class="reviews__link_icon_img">
+               </span>
+            </a>
+            <div class="reviews__slider">
+               <div class="reviews__slider_control">
+                  <div class="reviews__slider_control_btns">
+                     <button type="button" class="prev" id="reviewsPrev">
+                        <img src="images/next.png" alt="">
+                     </button>
+                     <button type="button" class="next" id="reviewsNext">
+                        <img src="images/next.png" alt="">
+                     </button>
+                  </div>
+                  <div class="reviews__slider_control_getReview">
+                     <a href="" class="reviews__slider_control_getReview-link">оставить свой отзыв</a>
+                  </div>
+               </div>
+               <div class="swiper" id="reviews">
+                  <div class="swiper-wrapper">
+                     <div class="swiper-slide">
+                        <div class="reviews__slider_item">
+                           <div class="review">
+                              <div class="review__header">
+                                 <h3 class="review__header_title">Полина Аренс</h3>
+                                 <p class="review__header_nickname">polina_arens</p>
+                                 <time class="review__header_date">08.10.2019</time>
+                              </div>
+                              <div class="review__info">
+                                 <p class="review__info_text">
+                                    Услуга:
+                                    <b>Уход за чувствительной кожей лица</b>
+                                 </p>
+                                 <p class="review__info_text">
+                                    Врач:
+                                    <b>Григорян Кристина Олеговна</b>
+                                 </p>
+                              </div>
+                              <p class="review__desc">Девочки, в давайте начнём понедельник с красоты, и я Вам расскажу об
+                                 очень классной курсовой процедуре, которую я делала в @rplusclinic и которую смело могу Вам
+                                 рекомендовать. Речь идёт об аппаратной карбокситерапии - процедуре, благодаря которой
+                                 происходит одновременно очищение, увлажнение и тонизация Кожи за счёт насыщения дермы
+                                 кислородом. Первая часть процедуры это собственно реактивная составляющая - при помощи
+                                 специальной химической насадки происходит реакция с выработкой кислорода, а вторая часть -
+                                 это собственно аналог безиньекционной мезотерапии, когда сыворотка...</p>
+                              <div class="review__footer">
+                                 <a href="" class="review__footer_link">читать полностью</a>
+                                 <a href="" class="review__footer_video">
+                                    Смотреть видеоотзыв
+                                    <img src="images/videoBtn.png" alt="" class="review__footer_video_icon">
+                                 </a>
+                              </div>
+                           </div>
+                           <div class="doctor">
+                              <button class="doctor__btn" type="button" onclick="dropdown(this)">
+                                 <span class="doctor__btn_text">Читать ответ доктора</span>
+                                 <img class="doctor__btn_arrow" src="images/doctorArrow.svg" alt="arrow img">
+                              </button>
+                              <div class="doctor__dropdown">
+                                 <div class="doctor__header">
+                                    <img src="images/doctorReview.png" alt="" class="doctor__header_img">
+                                    <div class="doctor__header_desc">
+                                       <h3 class="doctor__header_desc_docName">Григорян Кристина Олеговна</h3>
+                                       <p class="doctor__header_desc_speciality">Врач дерматолог-косметолог</p>
+                                    </div>
+                                    <time class="doctor__header_date">10.10.2019</time>
+                                 </div>
+                                 <p class="doctor__review">Полина, спасибо большое за отзыв. Рада, что все понравилось и вы
+                                    довольны результатом.</p>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+   </main>
+
+   <footer class="footer">
+      <div class="footer__top">
+          <div class="footer__item">
+              <a href="" class="footer__logo">
+                  <img src="images/logo.png" alt="" class="footer__logo_img">
+                  <span class="footer__logo_text">Центр восстановительной медицины R+</span>
+              </a>
+              <p class="footer__license">Лицензия № ЛО-77-01-01-5618</p>
+          </div>
+
+          <div class="footer__accordionsMobile">
+            <div class="accordion footer__accordionsMobile_accordion">
+               <button class="accordion__btn footer__accordionsMobile_btn" type="button"
+                  onclick="dropdown(this)">Услуги
+                  <img class="accordion__btn_arrow footer__accordionsMobile_btn_arrow" src="images/accordionArrow.svg"
+                     alt="arrow img">
+               </button>
+               <div class="accordion__content footer__accordionsMobile_content">
+                  <a href="" class="footer__accordionsMobile_link">Ортопедия</a>
+                  <a href="" class="footer__accordionsMobile_link">Косметология</a>
+                  <a href="" class="footer__accordionsMobile_link">Реабилитология</a>
+               </div>
+            </div>
+            <div class="accordion footer__accordionsMobile_accordion">
+               <button class="accordion__btn footer__accordionsMobile_btn" type="button"
+                  onclick="dropdown(this)">Клиника
+                  <img class="accordion__btn_arrow footer__accordionsMobile_btn_arrow" src="images/accordionArrow.svg"
+                     alt="arrow img">
+               </button>
+               <div class="accordion__content footer__accordionsMobile_content">
+                  <a href="" class="footer__accordionsMobile_link">О нас</a>
+                  <a href="" class="footer__accordionsMobile_link">Врачи</a>
+                  <a href="" class="footer__accordionsMobile_link">Оборудование</a>
+                  <a href="" class="footer__accordionsMobile_link">Акции</a>
+                  <a href="" class="footer__accordionsMobile_link">Цены</a>
+                  <a href="" class="footer__accordionsMobile_link">Отзывы</a>
+                  <a href="" class="footer__accordionsMobile_link">Правовая информация</a>
+                  <a href="" class="footer__accordionsMobile_link">Галерея</a>
+                  <a href="" class="footer__accordionsMobile_link">Контакты</a>
+               </div>
+            </div>
+            <div class="accordion footer__accordionsMobile_accordion">
+               <button class="accordion__btn footer__accordionsMobile_btn" type="button"
+                  onclick="dropdown(this)">Комплексные программы
+                  <img class="accordion__btn_arrow footer__accordionsMobile_btn_arrow" src="images/accordionArrow.svg"
+                     alt="arrow img">
+               </button>
+               <div class="accordion__content footer__accordionsMobile_content">
+                  <a href="" class="footer__accordionsMobile_link">Лечение артроза</a>
+                  <a href="" class="footer__accordionsMobile_link">Лечение остеопороз</a>
+                  <a href="" class="footer__accordionsMobile_link">Восстановление после трафм и операций</a>
+               </div>
+            </div>
+          </div>
+
+          <div class="footer__item footer__item-mobile">
+              <div class="footer__list">
+                  <h3 class="footer__list_title">Услуги</h3>
+                  <ul class="footer__list_menu">
+                      <li><a href="" class="footer__list_menu_link">Ортопедия</a></li>
+                      <li><a href="" class="footer__list_menu_link">Косметология</a></li>
+                      <li><a href="" class="footer__list_menu_link">Реабилитология</a></li>
+                  </ul>
+              </div>
+              <div class="footer__list">
+                  <h3 class="footer__list_title">Комплексные программы</h3>
+                  <ul class="footer__list_menu">
+                      <li><a href="" class="footer__list_menu_link">Лечение артроза</a></li>
+                      <li><a href="" class="footer__list_menu_link">Лечение остеопороз</a></li>
+                      <li><a href="" class="footer__list_menu_link">Восстановление после трафм и операций</a></li>
+                  </ul>
+              </div>
+          </div>
+          <div class="footer__item footer__item-mobile">
+              <div class="footer__list">
+                  <h3 class="footer__list_title">Клиника</h3>
+                  <ul class="footer__list_menu">
+                      <li><a href="" class="footer__list_menu_link">О нас</a></li>
+                      <li><a href="" class="footer__list_menu_link">Врачи</a></li>
+                      <li><a href="" class="footer__list_menu_link">Оборудование</a></li>
+                      <li><a href="" class="footer__list_menu_link">Акции</a></li>
+                      <li><a href="" class="footer__list_menu_link">Цены</a></li>
+                      <li><a href="" class="footer__list_menu_link">Отзывы</a></li>
+                      <li><a href="" class="footer__list_menu_link">Правовая информация</a></li>
+                      <li><a href="" class="footer__list_menu_link">Галерея</a></li>
+                      <li><a href="" class="footer__list_menu_link">Контакты</a></li>
+                  </ul>
+              </div>
+          </div>
+          <div class="footer__contact">
+              <div class="footer__contact_btns">
+                  <a href="" class="footer__contact_btns_diagnostic">Онлайн- диагностика</a>
+                  <button type="button" class="footer__contact_btns_appointment">Запись на прием</button>
+              </div>
+              <div class="footer__contact_content">
+                  <div class="footer__contact_phone">
+                      <a href="" class="footer__contact_phone_link">+7 495 120 05 77;</a>
+                      <a href="" class="footer__contact_phone_link">+7 977 103 17 77</a>
+                  </div>
+                  <a href="" class="footer__contact_email">rplusclinic@gmail.com</a>
+                  <p class="footer__contact_adress">Москва, поселение Сосенское , поселок <br> Коммунарка, ул. Липовый парк д.6, к1</p>
+                  <p class="footer__contact_schedule">Ежедневно с 9:00 до 21:00</p>
+              </div>
+              <div class="footer__social">
+                  <a href="" class="footer__social_link">
+                      <img src="images/facebook-logo-button.png" alt="" class="footer__social_link_icon">
+                  </a>
+                  <a href="" class="footer__social_link">
+                      <img src="images/instagram-logo.png" alt="" class="footer__social_link_icon">
+                  </a>
+                  <a href="" class="footer__social_link">
+                      <img src="images/youtube-logotype.png" alt="" class="footer__social_link_icon">
+                  </a>
+              </div>
+          </div>
+      </div>
+
+      <div class="footer__bottom">
+          <div class="footer__bottom_content">
+              <p class="footer__bottom_text"><span class="footer__bottom_text-circle">c</span> R+, 2019</p>
+              <a href="" class="footer__bottom_link">Политика конфиденциальности</a>
+              <p class="footer__bottom_text">Разработка сайта - Dial Digital Agency</p>
+          </div>
+      </div>
+  </footer>
+
+   <!-- swipper js -->
+   <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+   <!-- script js -->
+   <script type="module" src="js/doctors.js"></script>
+</body>
+
+</html>

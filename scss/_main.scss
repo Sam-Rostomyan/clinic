@@ -1,0 +1,183 @@
+@font-face {
+    font-family: 'montserrat', sans-serif;
+    src: url('../font/Montserrat-Regular.ttf');
+    src: url('../font/Montserrat-Medium.ttf');
+    src: url('../font/Montserrat-SemiBold.ttf');
+    src: url('../font/Montserrat-Bold.ttf');
+    src: url('../font/Montserrat-ExtraBold.ttf');
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'montserrat', sans-serif;
+    color: #252628;
+    font-weight: 400;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+main {
+    height: 100%;
+}
+
+ul,
+ol {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+textarea,
+select,
+input,
+button {
+    border: none;
+    outline: none;
+    background: none;
+}
+
+select,
+button {
+    cursor: pointer;
+}
+
+textarea {
+    resize: none;
+}
+
+select {
+    appearance: none;
+}
+
+
+
+@mixin clamp($num) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-clamp: $num;
+    box-orient: vertical;
+}
+
+@mixin H2 {
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 160%;
+
+    @media screen and (max-width: 1024px) {
+        font-size: 32px;
+        line-height: 140%;
+    }
+
+    @media screen and (max-width: 900px) {
+        font-size: 28px;
+    }
+
+    @media screen and (max-width: 800px) {
+        font-size: 24px;
+    }
+
+    @media screen and (max-width: 700px) {
+        font-size: 20px;
+    }
+}
+
+@mixin secondH2 {
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 150%;
+    text-transform: uppercase;
+
+    @media screen and (max-width: 900px) {
+        font-size: 28px;
+    }
+
+    @media screen and (max-width: 800px) {
+        font-size: 26px;
+    }
+
+    @media screen and (max-width: 700px) {
+        font-size: 24px;
+        line-height: 130%;
+    }
+
+    @media screen and (max-width: 650px) {
+        font-size: 22px;
+        text-align: center;
+    }
+
+    @media screen and (max-width: 600px) {
+        font-size: 20px;
+        font-weight: 600;
+    }
+}
+
+// ****** scroll Up ******
+.scrollUp {
+    position: fixed;
+    bottom: 132px;
+    right: calc((100vw - 1350px) / 4);
+    width: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    grid-gap: 24px;
+    display: none;
+
+    @media screen and (max-width: 1500px) {
+        bottom: 80px;
+    }
+
+    &__link {
+    
+        &::after {
+            content: '';
+            display: block;
+            width: 2.5px;
+            margin: -1px auto 0;
+            height: 0;
+            background: #88BD6F;
+            transition: .2s;
+        }
+    }
+
+    &:hover {
+        .scrollUp__link::after {
+            height: 15px;
+            transition: .2s;
+        }
+    }
+
+    &__arrow {
+        width: 100%;
+        display: block;
+    }
+
+    &__text {
+        font-weight: 600;
+        font-size: 12px;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        transform: rotate(-90deg);
+        margin-top: 24px;
+
+        @media screen and (max-width: 1500px) {
+            display: none;
+        }
+    }
+
+    @media screen and (max-width: 1580px) {
+        right: 30px;
+    }
+}

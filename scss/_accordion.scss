@@ -1,0 +1,96 @@
+.accordion {
+   width: 100%;
+   background: #FFFFFF;
+   box-shadow: 20px 5px 45px rgba(0, 0, 0, 0.05);
+
+   &__btn {
+      padding: 42px 32px 42px 64px;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 150%;
+      transition: .2s linear;
+
+      @media screen and (max-width: 900px) {
+         padding: 42px 28px 42px 60px;
+      }
+
+      @media screen and (max-width: 800px) {
+         padding: 35px 24px 35px 50px;
+         font-size: 22px;
+      }
+
+      @media screen and (max-width: 700px) {
+         padding: 30px 20px 30px 40px;
+         font-size: 20px;
+      }
+
+      @media screen and (max-width: 600px) {
+         padding: 25px 15px 25px 30px;
+         font-size: 18px;
+      }
+
+      @media screen and (max-width: 500px) {
+         padding: 15px 10px 15px 15px;
+         font-size: 17px;
+      }
+
+      &.active &_arrow {
+         transform: rotate(180deg);
+      }
+
+      &_arrow {
+         width: 48px;
+         height: 48px;
+
+         @media screen and (max-width: 600px) {
+            width: 38px;
+            height: 38px;
+         }
+
+         @media screen and (max-width: 500px) {
+            width: 32px;
+            height: 32px;
+         }
+      }
+   }
+
+   &__content {
+      max-height: 0;
+      overflow: hidden;
+      transition: .3s;
+
+      &_text {
+         padding: 20px 32px 20px 64px;
+         border-top: 1px solid rgb(239, 220, 220);
+         font-size: 18px;
+         letter-spacing: 0.5px;
+
+         @media screen and (max-width: 900px) {
+            padding: 20px 28px 20px 60px;
+         }
+   
+         @media screen and (max-width: 800px) {
+            padding: 20px 24px 20px 50px;
+         }
+   
+         @media screen and (max-width: 700px) {
+            padding: 20px 20px 20px 40px;
+         }
+   
+         @media screen and (max-width: 580px) {
+            padding: 15px 15px 15px 30px;
+            font-size: 16px;
+         }
+   
+         @media screen and (max-width: 500px) {
+            padding: 15px 10px 15px 15px;
+            font-size: 14px;
+         }
+      }
+   }
+}

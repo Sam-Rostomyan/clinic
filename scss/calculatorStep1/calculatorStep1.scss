@@ -1,0 +1,342 @@
+@import "../_navbar";
+@import "../_footer";
+@import "../_main";
+@import "../_crumbs";
+@import "../_modal";
+@import "../_accordion";
+@import "../_steps";
+@import "../_comfortable";
+
+
+.diagnostics {
+   width: 100%;
+   max-width: 1380px;
+   padding: 12px 15px 80px;
+   margin: 0 auto;
+
+   @media screen and (max-width: 900px) {
+      padding: 12px 15px 70px;
+   }
+
+   @media screen and (max-width: 800px) {
+      padding: 12px 15px 60px;
+   }
+
+   @media screen and (max-width: 700px) {
+      padding: 12px 15px 50px;
+   }
+
+   @media screen and (max-width: 580px) {
+      padding: 12px 12px 40px;
+   }
+
+   @media screen and (max-width: 500px) {
+      padding: 12px 12px 30px;
+   }
+
+   &__title {
+      @include H2;
+      text-transform: uppercase;
+      padding-bottom: 48px;
+
+      @media screen and (max-width: 900px) {
+         padding-bottom: 40px;
+      }
+
+      @media screen and (max-width: 800px) {
+         padding-bottom: 35px;
+      }
+
+      @media screen and (max-width: 700px) {
+         padding-bottom: 30px;
+      }
+
+      @media screen and (max-width: 580px) {
+         padding-bottom: 25px;
+         font-weight: 700;
+      }
+   }
+
+   &__steps {
+      position: relative;
+      width: 100%;
+      max-width: 510px;
+      padding-left: 8px;
+      display: flex;
+      justify-content: space-between;
+
+      &_borderDecor {
+         position: absolute;
+         top: 22px;
+         left: 2.5%;
+         width: 95%;
+         height: 4px;
+         background: #E0E0E0;
+         z-index: -1;
+
+         &.active {
+            &::after {
+               background: #88BD6F;
+            }
+         }
+
+         &::before,
+         &::after {
+            content: '';
+            position: absolute;
+            top: -4px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #D8F8D9;
+         }
+
+         &::before {
+            left: 26%;
+            background: #88BD6F;
+         }
+
+         &::after {
+            right: 26%;
+         }
+      }
+
+      &_desc::after,
+      &_desc::before {
+         display: none;
+      }
+
+      &_step {
+         background: #F2F2F2;
+         margin-top: 0;
+
+         .white-circle {
+            background: #88BD6F;
+
+            &::before {
+               color: #88BD6F;
+            }
+         }
+
+         &::before {
+            opacity: 0;
+            transition: .2s linear;
+         }
+
+         &.active {
+            &::before {
+               opacity: 1;
+               transition: .2s linear;
+            }
+
+            .white-circle {
+               width: 100%;
+               height: 100%;
+            }
+
+            .white-circle::before {
+               color: #fff;
+            }
+
+            &+.diagnostics__steps_text {
+               color: #252628;
+            }
+         }
+      }
+
+      &_text {
+         padding-top: 24px;
+         font-weight: 700;
+         font-size: 14px;
+         line-height: 180%;
+         color: #949699;
+      }
+
+      .noHover {
+         pointer-events: none;
+      }
+   }
+}
+
+.whatHurts {
+   width: 100%;
+   max-width: 1380px;
+   padding: 0 15px;
+   margin: 0 auto;
+
+   &.active {
+      display: none;
+   }
+
+   @media screen and (max-width: 580px) {
+      padding: 0 12px;
+   }
+
+   &__btns {
+      width: 100%;
+      max-width: 430px;
+      padding: 5px;
+      background: #88BD6F;
+      border-radius: 32px;
+      display: flex;
+      justify-content: space-between;
+      grid-gap: 5px;
+
+      @media screen and (max-width: 768px) {
+         grid-gap: 2px;
+      }
+
+      @media screen and (max-width: 580px) {
+         max-width: 330px;
+      }
+   }
+
+   &__btn {
+      display: block;
+      padding: 14px 24px;
+      font-size: 14px;
+      line-height: 26px;
+
+      @media screen and (max-width: 580px) {
+         padding: 12px 16px;
+         font-size: 11px;
+         line-height: 15px;
+      }
+
+      &:hover {
+         font-weight: 700;
+         color: #225B51;
+      }
+
+      &.active {
+         background: #FFFFFF;
+         box-shadow: 5px 5px 8px rgba(34, 91, 81, 0.15);
+         border-radius: 27px;
+      }
+   }
+
+   &__tab {
+      padding: 64px 0;
+      display: none;
+
+      @media screen and (max-width: 900px) {
+         padding: 55px 0;
+      }
+
+      @media screen and (max-width: 800px) {
+         padding: 45px 0;
+      }
+
+      @media screen and (max-width: 700px) {
+         padding: 35px 0;
+      }
+
+      @media screen and (max-width: 580px) {
+         padding: 25px 0;
+      }
+
+      &.active {
+         display: block;
+      }
+   }
+
+   &__title {
+      padding-bottom: 32px;
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 150%;
+
+      @media screen and (max-width: 580px) {
+         padding-bottom: 20px;
+      }
+   }
+
+   .select-inner {
+      position: relative;
+      width: 100%;
+      max-width: 890px;
+      display: flex;
+      align-items: center;
+
+      &.active {
+         &::after {
+            transform: rotate(180deg);
+         }
+      }
+
+      &::after {
+         position: absolute;
+         content: '';
+         right: 20px;
+         width: 0;
+         height: 0;
+         border-style: solid;
+         border-width: 7px 5px 0 5px;
+         border-color: #252628 transparent transparent transparent;
+         cursor: pointer;
+      }
+   }
+
+   &__select {
+      width: 100%;
+      padding: 11px 24px;
+      background: #F2F2F2;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 180%;
+
+      @media screen and (max-width: 580px) {
+         padding: 8px 15px;
+         font-size: 12px;
+      }
+   }
+
+   &__nextBtn {
+      display: block;
+      width: 100%;
+      max-width: 200px;
+      padding: 22px;
+      background: #252628;
+      border-radius: 32px;
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 160%;
+      letter-spacing: 0.05em;
+      text-align: center;
+      text-transform: uppercase;
+      color: #FFFFFF;
+
+      @media screen and (max-width: 580px) {
+         max-width: 150px;
+         padding: 15px;
+      }
+   }
+}
+
+.calculator-comfortable {
+   position: relative;
+   width: 100%;
+   max-width: 1920px;
+   margin: 0 auto;
+
+   .decor1,
+   .decor2 {
+      position: absolute;
+      max-width: 100%;
+      z-index: -1;
+   }
+
+   .decor1 {
+      left: 0;
+      bottom: 120px;
+   }
+
+   .decor2 {
+      right: 0;
+      top: -300px;
+
+      @media screen and (max-width: 768px) {
+         top: 0;
+      }
+   }
+}

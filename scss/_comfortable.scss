@@ -1,0 +1,160 @@
+.comfortable {
+   width: 100%;
+   max-width: 1380px;
+   margin: 0 auto;
+   padding: 120px 15px;
+
+   @media screen and (max-width: 1200px) {
+      padding: 110px 15px;
+   }
+
+   @media screen and (max-width: 1100px) {
+      padding: 100px 15px;
+   }
+
+   @media screen and (max-width: 1000px) {
+      padding: 90px 15px;
+   }
+
+   @media screen and (max-width: 900px) {
+      padding: 80px 15px;
+   }
+
+   @media screen and (max-width: 800px) {
+      padding: 70px 15px;
+   }
+
+   @media screen and (max-width: 700px) {
+      padding: 60px 15px;
+   }
+
+   @media screen and (max-width: 580px) {
+      padding: 50px 12px;
+   }
+
+   @media screen and (max-width: 500px) {
+      padding: 40px 12px;
+   }
+
+   &__title {
+      @include secondH2;
+   }
+
+   &__content {
+      padding-top: 48px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-column-gap: 30px;
+      grid-row-gap: 64px;
+
+      @media screen and (max-width: 1200px) {
+         grid-template-columns: repeat(3, 1fr);
+         grid-column-gap: 20px;
+      }
+
+      @media screen and (max-width: 850px) {
+         grid-template-columns: repeat(2, 1fr);
+         grid-column-gap: 30px;
+         padding-top: 40px;
+      }
+
+      @media screen and (max-width: 650px) {
+         grid-template-columns: 1fr;
+         grid-row-gap: 30px;
+         text-align: center;
+         padding-top: 30px;
+      }
+   }
+
+   &__desc {
+      position: relative;
+
+      &:last-child::after {
+         display: none !important;
+      }
+      &:nth-child(4n)::after {
+         display: none;
+      }
+
+      @media screen and (max-width: 1200px) {
+         &:nth-child(3n)::after {
+            display: none;
+         }
+
+         &:nth-child(4n)::after {
+            display: block;
+         }
+      }
+
+      @media screen and (max-width: 850px) {
+         &:nth-child(even)::after {
+            display: none;
+         }
+
+         &:nth-child(odd)::after {
+            display: block;
+         }
+      }
+
+      @media screen and (max-width: 650px) {
+         &::after {
+            display: none !important;
+         }
+      }
+
+      &::after {
+         content: '';
+         position: absolute;
+         right: 0;
+         top: 44px;
+         width: 63.6%;
+         border-bottom: 1px dashed #949699;
+      }
+
+      &_photo {
+         width: 85px;
+         height: 85px;
+
+         @media screen and (max-width: 650px) {
+            margin: 0 auto;
+         }
+
+         &-img{
+            display: block;
+            width: 100%;
+         }
+      }
+
+      &_title {
+         margin-top: 24px;
+         font-weight: 700;
+         font-size: 18px;
+         line-height: 150%;
+         color: #000000;
+      }
+
+      .text-top {
+         padding-top: 24px;
+      }
+
+      &_text {
+         padding-top: 12px;
+         font-size: 14px;
+         line-height: 26px;
+         color: #000000;
+
+         @media screen and (max-width: 650px) {
+            max-width: 70%;
+            margin: 0 auto;
+         }
+
+         @media screen and (max-width: 425px) {
+            max-width: 90%;
+         }
+
+         @media screen and (max-width: 360px) {
+            max-width: 100%;
+         }
+      }
+   }
+}

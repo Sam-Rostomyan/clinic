@@ -1,0 +1,534 @@
+@import "../_navbar";
+@import "../_footer";
+@import "../_main";
+@import "../_crumbs";
+@import "../_modal";
+@import "../_accordion";
+@import "../_steps";
+@import "../_comfortable";
+@import "../_form";
+@import "../_consultation";
+@import "../_reviews";
+
+
+.diagnostics {
+   width: 100%;
+   max-width: 1380px;
+   padding: 12px 15px 80px;
+   margin: 0 auto;
+
+   @media screen and (max-width: 900px) {
+      padding: 12px 15px 70px;
+   }
+
+   @media screen and (max-width: 800px) {
+      padding: 12px 15px 60px;
+   }
+
+   @media screen and (max-width: 700px) {
+      padding: 12px 15px 50px;
+   }
+
+   @media screen and (max-width: 580px) {
+      padding: 12px 12px 40px;
+   }
+
+   @media screen and (max-width: 500px) {
+      padding: 12px 12px 30px;
+   }
+
+   &__title {
+      @include H2;
+      text-transform: uppercase;
+      padding-bottom: 48px;
+
+      @media screen and (max-width: 900px) {
+         padding-bottom: 40px;
+      }
+
+      @media screen and (max-width: 800px) {
+         padding-bottom: 35px;
+      }
+
+      @media screen and (max-width: 700px) {
+         padding-bottom: 30px;
+      }
+
+      @media screen and (max-width: 580px) {
+         padding-bottom: 25px;
+         font-weight: 700;
+      }
+   }
+
+   &__steps {
+      position: relative;
+      width: 100%;
+      max-width: 510px;
+      padding-left: 8px;
+      display: flex;
+      justify-content: space-between;
+
+      &_borderDecor {
+         position: absolute;
+         top: 22px;
+         left: 2.5%;
+         width: 95%;
+         height: 4px;
+         background: #E0E0E0;
+         z-index: -1;
+
+         &.active {
+            &::after,
+            &::before {
+               background: #88BD6F;
+            }
+         }
+
+         &::before,
+         &::after {
+            content: '';
+            position: absolute;
+            top: -4px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #D8F8D9;
+         }
+
+         &::before {
+            left: 26%;
+            background: #88BD6F;
+         }
+
+         &::after {
+            right: 26%;
+         }
+      }
+
+      &_desc::after,
+      &_desc::before {
+         display: none;
+      }
+
+      &_step {
+         background: #F2F2F2;
+         margin-top: 0;
+
+         .white-circle {
+            background: #88BD6F;
+
+            &::before {
+               color: #88BD6F;
+            }
+         }
+
+         &::before {
+            opacity: 0;
+            transition: .2s linear;
+         }
+
+         &.active {
+            &::before {
+               opacity: 1;
+               transition: .2s linear;
+            }
+
+            .white-circle {
+               width: 100%;
+               height: 100%;
+            }
+
+            .white-circle::before {
+               color: #fff;
+            }
+
+            &+.diagnostics__steps_text {
+               color: #252628;
+            }
+         }
+      }
+
+      &_text {
+         padding-top: 24px;
+         font-weight: 700;
+         font-size: 14px;
+         line-height: 180%;
+         color: #949699;
+      }
+
+      .noHover {
+         pointer-events: none;
+      }
+   }
+}
+
+.osteoarthritis {
+   width: 100%;
+   max-width: 1380px;
+   padding: 0 15px;
+   margin: 0 auto;
+
+   &__text {
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 150%;
+      color: #949699;
+      padding-bottom: 4px;
+
+      @media screen and (max-width: 580px) {
+         font-size: 16px;
+      }
+   }
+
+   &__title {
+      @include secondH2;
+      text-align: left !important;
+      padding-bottom: 48px;
+
+      @media screen and (max-width: 800px) {
+         padding-bottom: 40px;
+      }
+
+      @media screen and (max-width: 700px) {
+         padding-bottom: 30px;
+      }
+
+      @media screen and (max-width: 580px) {
+         padding-bottom: 20px;
+      }
+   }
+
+   &__desc {
+      display: grid;
+      grid-gap: 35px;
+
+      @media screen and (max-width: 768px) {
+         grid-gap: 30px;
+      }
+
+      @media screen and (max-width: 580px) {
+         grid-gap: 20px;
+      }
+
+      &_paragraph {
+         font-size: 14px;
+         line-height: 180%;
+      }
+   }
+}
+
+.calc-consultation {
+   margin-top: 120px;
+
+   @media screen and (max-width: 1200px) {
+      margin-top: 110px;
+   }
+
+   @media screen and (max-width: 1100px) {
+      margin-top: 100px;
+   }
+
+   @media screen and (max-width: 1000px) {
+      margin-top: 90px;
+   }
+
+   @media screen and (max-width: 900px) {
+      margin-top: 75px;
+   }
+
+   @media screen and (max-width: 800px) {
+      margin-top: 60px;
+   }
+
+   @media screen and (max-width: 700px) {
+      margin-top: 45px;
+   }
+
+   @media screen and (max-width: 580px) {
+      margin-top: 30px;
+   }
+}
+
+.methodsTreatment {
+   width: 100%;
+   max-width: 1380px;
+   padding: 120px 15px 0;
+   margin: 0 auto;
+
+   @media screen and (max-width: 1200px) {
+      padding: 110px 15px 0;
+   }
+
+   @media screen and (max-width: 1100px) {
+      padding: 100px 15px 0;
+   }
+
+   @media screen and (max-width: 1000px) {
+      padding: 90px 15px 0;
+   }
+
+   @media screen and (max-width: 900px) {
+      padding: 75px 15px 0;
+   }
+
+   @media screen and (max-width: 800px) {
+      padding: 60px 15px 0;
+   }
+
+   @media screen and (max-width: 700px) {
+      padding: 45px 15px 0;
+   }
+
+   @media screen and (max-width: 580px) {
+      padding: 30px 12px 0;
+   }
+
+   &__title {
+      @include secondH2;
+      text-align: left !important;
+      padding-bottom: 48px;
+
+      @media screen and (max-width: 800px) {
+         padding-bottom: 40px;
+      }
+
+      @media screen and (max-width: 700px) {
+         padding-bottom: 30px;
+      }
+
+      @media screen and (max-width: 580px) {
+         padding-bottom: 20px;
+      }
+   }
+
+   &__desc {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-column-gap: 30px;
+      grid-row-gap: 24px;
+      padding-bottom: 48px;
+
+      @media screen and (max-width: 1024px) {
+         grid-template-columns: 1fr 1fr;
+      }
+
+      @media screen and (max-width: 768px) {
+         grid-template-columns: 1fr;
+         grid-row-gap: 15px;
+         padding-bottom: 40px;
+      }
+
+      @media screen and (max-width: 700px) {
+         padding-bottom: 30px;
+      }
+
+      @media screen and (max-width: 580px) {
+         padding-bottom: 20px;
+      }
+
+      &_link {
+         display: flex;
+         align-items: center;
+         justify-content: space-between;
+         grid-gap: 35px;
+         padding: 24px 48px;
+         background: #F2F2F2;
+         transition: .2s;
+
+         @media screen and (max-width: 1300px) {
+            padding: 24px 40px;
+            grid-gap: 25px;
+         }
+
+         @media screen and (max-width: 1200px) {
+            padding: 24px 30px;
+            grid-gap: 20px;
+         }
+
+         @media screen and (max-width: 1100px) {
+            padding: 24px 20px;
+         }
+
+         @media screen and (max-width: 580px) {
+            padding: 16px 15px;
+         }
+
+         &:hover &_text {
+            color: #fff;
+            transition: .2s;
+         }
+
+         &:hover {
+            transition: .2s;
+            background: #225B51;
+         }
+
+         &_text {
+            font-size: 14px;
+            line-height: 160%;
+            text-transform: uppercase;
+            color: #252628;
+            transition: .2s;
+
+            @media screen and (max-width: 850px) {
+               font-size: 13px;
+            }
+
+            @media screen and (max-width: 580px) {
+               font-size: 12px;
+            }
+         }
+
+         &_icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 48px;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: #fff;
+
+            @media screen and (max-width: 850px) {
+               min-width: 40px;
+               width: 40px;
+               height: 40px;
+            }
+         }
+      }
+   }
+
+   &__paragraph {
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 150%;
+      padding-bottom: 32px;
+
+      @media screen and (max-width: 580px) {
+         font-size: 16px;
+         padding-bottom: 25px;
+      }
+   }
+
+   &__link {
+      width: 100%;
+      max-width: 430px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      grid-gap: 35px;
+      padding: 34px 48px;
+      background: #F2F2F2;
+      transition: .2s;
+
+      @media screen and (max-width: 768px) {
+         padding: 27px 40px;
+      }
+
+      @media screen and (max-width: 580px) {
+         padding: 20px 20px;
+      }
+
+      &:hover &_text {
+         color: #fff;
+         transition: .2s;
+      }
+
+      &:hover {
+         transition: .2s;
+         background: #225B51;
+      }
+
+      &_text {
+         font-size: 14px;
+         line-height: 160%;
+         text-transform: uppercase;
+         color: #252628;
+         transition: .2s;
+
+         @media screen and (max-width: 850px) {
+            font-size: 13px;
+         }
+      }
+
+      &_icon {
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         min-width: 48px;
+         width: 48px;
+         height: 48px;
+         border-radius: 50%;
+         background: #fff;
+
+         @media screen and (max-width: 850px) {
+            min-width: 40px;
+            width: 40px;
+            height: 40px;
+         }
+      }
+   }
+}
+
+.calculator-comfortable {
+   position: relative;
+   width: 100%;
+   max-width: 1920px;
+   margin: 0 auto;
+
+   .decor1,
+   .decor2 {
+      position: absolute;
+      max-width: 100%;
+      z-index: -1;
+   }
+
+   .decor1 {
+      left: 0;
+      bottom: 120px;
+   }
+
+   .decor2 {
+      right: 0;
+      top: -300px;
+
+      @media screen and (max-width: 768px) {
+         top: 0;
+      }
+   }
+}
+
+.calculator-reviews {
+   margin-top: 0;
+   padding-bottom: 108px;
+
+   @media screen and (max-width: 1000px) {
+      padding-bottom: 90px;
+   }
+
+   @media screen and (max-width: 900px) {
+      padding-bottom: 75px;
+   }
+
+   @media screen and (max-width: 800px) {
+      padding-bottom: 60px;
+   }
+
+   @media screen and (max-width: 700px) {
+      padding-bottom: 40px;
+   }
+
+   &::before {
+      display: none;
+   }
+
+   &__slider_item {
+      padding-bottom: 0;
+   }
+
+   &__header {
+      @media screen and (max-width: 580px) {
+         padding-top: 25px;
+      }
+   }
+}

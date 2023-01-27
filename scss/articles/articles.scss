@@ -1,0 +1,295 @@
+@import "../_navbar";
+@import "../_footer";
+@import "../_main";
+@import "../_crumbs";
+@import "../_pagesDots";
+@import "../_modal";
+@import "../_accordion";
+
+
+.articles {
+   width: 100%;
+   max-width: 1380px;
+   margin: 0 auto;
+   padding: 12px 15px 120px;
+
+   @media screen and (max-width: 1200px) {
+      padding-bottom: 110px;
+   }
+
+   @media screen and (max-width: 1100px) {
+      padding-bottom: 100px;
+   }
+
+   @media screen and (max-width: 1000px) {
+      padding-bottom: 90px;
+   }
+
+   @media screen and (max-width: 900px) {
+      padding-bottom: 80px;
+   }
+
+   @media screen and (max-width: 800px) {
+      padding-bottom: 70px;
+   }
+
+   @media screen and (max-width: 700px) {
+      padding-bottom: 60px;
+   }
+
+   @media screen and (max-width: 580px) {
+      padding: 12px 12px 50px;
+   }
+
+   @media screen and (max-width: 500px) {
+      padding-bottom: 40px;
+   }
+
+   @media screen and (max-width: 400px) {
+      padding-bottom: 30px;
+   }
+
+   &__title {
+      @include H2;
+      color: #000;
+      text-transform: uppercase;
+   }
+
+   .select-inner {
+      position: relative;
+      width: 100%;
+      max-width: 660px;
+      margin-top: 48px;
+      display: flex;
+      align-items: center;
+
+      @media screen and (max-width: 800px) {
+         margin-top: 40px;
+      }
+
+      @media screen and (max-width: 700px) {
+         margin-top: 35px;
+      }
+
+      @media screen and (max-width: 600px) {
+         margin-top: 30px;
+      }
+
+      @media screen and (max-width: 500px) {
+         margin-top: 25px;
+      }
+
+      @media screen and (max-width: 400px) {
+         margin-top: 20px;
+      }
+
+      &.active {
+         &::after {
+            transform: rotate(180deg);
+         }
+      }
+
+      &::after {
+         position: absolute;
+         content: '';
+         right: 20px;
+         width: 0;
+         height: 0;
+         border-style: solid;
+         border-width: 7px 5px 0 5px;
+         border-color: #252628 transparent transparent transparent;
+         cursor: pointer;
+      }
+   }
+
+   &__select {
+      width: 100%;
+      padding: 11px 24px;
+      background: #F2F2F2;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 180%;
+   }
+
+   &__content {
+      margin-top: 48px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 30px;
+
+      @media screen and (max-width: 1200px) {
+         grid-template-columns: repeat(3, 1fr);
+      }
+
+      @media screen and (max-width: 900px) {
+         grid-template-columns: repeat(2, 1fr);
+      }
+
+      @media screen and (max-width: 800px) {
+         margin-top: 40px;
+      }
+
+      @media screen and (max-width: 700px) {
+         margin-top: 35px;
+      }
+
+      @media screen and (max-width: 600px) {
+         margin-top: 30px;
+         grid-template-columns: 1fr;
+         grid-gap: 20px;
+      }
+
+      @media screen and (max-width: 500px) {
+         margin-top: 25px;
+      }
+
+      @media screen and (max-width: 400px) {
+         margin-top: 20px;
+      }
+   }
+
+   &__desc {
+      position: relative;
+      padding: 48px 35px 27px;
+      cursor: pointer;
+
+      @media screen and (max-width: 600px) {
+         padding: 48px 30px 27px;
+      }
+
+      @media screen and (max-width: 550px) {
+         padding: 48px 26px 27px;
+      }
+
+      @media screen and (max-width: 500px) {
+         padding: 48px 22px 27px;
+      }
+
+      @media screen and (max-width: 460px) {
+         padding: 48px 18px 27px;
+      }
+
+      @media screen and (max-width: 425px) {
+         padding: 48px 15px 27px;
+      }
+
+      &:hover {
+         &::after {
+            opacity: 1;
+            transition: .2s linear;
+         }
+      }
+
+      &::after {
+         content: '';
+         position: absolute;
+         left: 0;
+         top: 0;
+         width: 4px;
+         height: 100%;
+         background: #252628;
+         transition: .2s linear;
+         opacity: 0;
+      }
+
+      &_title {
+         position: relative;
+         font-weight: 700;
+         font-size: 14px;
+         line-height: 180%;
+         color: #949699;
+
+         &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: -16px;
+            width: 12px;
+            height: 12px;
+            background: #88BD6F;
+            border-radius: 50%;
+         }
+      }
+
+      .white-circle::before {
+         background: #fff;
+      }
+
+      &_paragraph {
+         position: relative;
+         margin-top: 80px;
+         font-weight: 700;
+         font-size: 18px;
+         line-height: 150%;
+         color: inherit;
+
+         @media screen and (max-width: 1200px) {
+            margin-top: 75px;
+         }
+
+         @media screen and (max-width: 1100px) {
+            margin-top: 70px;
+         }
+
+         @media screen and (max-width: 1000px) {
+            margin-top: 65px;
+         }
+
+         @media screen and (max-width: 900px) {
+            margin-top: 60px;
+         }
+
+         @media screen and (max-width: 800px) {
+            margin-top: 55px;
+         }
+
+         @media screen and (max-width: 700px) {
+            margin-top: 50px;
+         }
+
+         @media screen and (max-width: 600px) {
+            margin-top: 40px;
+         }
+      }
+
+      &_text {
+         position: relative;
+         margin-top: 12px;
+         font-size: 14px;
+         line-height: 180%;
+         color: inherit;
+      }
+
+      &.first-bg-img,
+      &.second-bg-img {
+         background-image: url("../../images/articlesDescBG1.png");
+         color: #fff;
+
+         &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(37, 38, 40, .7);
+         }
+      }
+
+      &.second-bg-img {
+         background-image: url("../../images/articlesDescBG2.png");
+      }
+
+      &.bg-grey {
+         background: #F2F2F2;
+      }
+
+      &.bg-green {
+         background: #88BD6F;
+      }
+
+      &.bg-light {
+         background: #D8F8D9;
+      }
+   }
+}
